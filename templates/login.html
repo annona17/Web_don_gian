@@ -57,6 +57,10 @@
             text-decoration: none;
             color: #007bff;
         } 
+
+        .error {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -73,6 +77,11 @@
         
                     <button type="submit">Đăng nhập</button>
                 </form>
+                {% if error %}
+                <div class="error">
+                    {{ error }}
+                </div>
+                {% endif %}
                 <p>Chưa có tài khoản? <a href="/register">Đăng kí</a></p>
             </center>
         </div>
