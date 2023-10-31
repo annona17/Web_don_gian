@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import json
+import os
 
 app = Flask(__name__)
 
+app.secret_key = os.urandom(24) # tao ra mot chuoi ngau nhien voi 24 ky tu
 users_file = "user.json"
 
 def load_users():
@@ -40,7 +42,8 @@ def login():
         elif users[username] != password:
             error = "Incorrect password!"
         else:
-            return redirect(url_for('home'))
+            session['username'] = username
+            return redirect(url_for('home', username=username))
 
     return render_template('login.html', error=error)
 
@@ -59,6 +62,11 @@ def register():
             return redirect(url_for('login'))
 
     return render_template('register.html', error=error)
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)
