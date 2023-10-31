@@ -7,32 +7,33 @@ users_file = "user.json"
 
 def load_users():
     try:
-        with open(users_file, 'r') as f:
-            return json.load(f)
-    except FileNotFoundError:
+        with open(users_file, 'r') as f: # mo file json, "r" -read, f la bien doc file
+            return json.load(f)  # tra ve gia tri cua file json
+    except FileNotFoundError: # neu khong tim thay file thi tra ve mot dict rong
         return {}
 
 def save_user(username, password):
     users = load_users()
     users[username] = password
-    with open(users_file, 'w') as f:
-        json.dump(users, f)
+    with open(users_file, 'w') as f: # "w" -write
+        json.dump(users, f) # xoa noi dung cu, ghi noi dung moi vao file
         
-@app.route('/')
+@app.route('/') 
 def index():
-    return redirect(url_for('login'))
+    return redirect(url_for('login')) # chuyen huong qua man login page
 
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    username = request.args.get('username') # lay gia tri cua username tu url
+    return render_template('home.html', username=username)
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST']) # neu khong co method thi mac dinh la GET
 def login():
     error = None
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        users = load_users()
+        username = request.form['username'] # lay gia tri cua username 
+        password = request.form['password'] # lay gia tri cua password
+        users = load_users() # load user tu file json
 
         if username not in users:
             error = "User not found!"

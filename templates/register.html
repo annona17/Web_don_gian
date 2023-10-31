@@ -7,46 +7,58 @@
             font-family: Arial, Helvetica, sans-serif;
             background-color: #f2f2f2;
             text-align: center;
-            padding: 100px;
+            padding: 80px;
+            background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20150828180844-internet-satellite-data-space.jpeg?width=700&crop=2:1&blur=50");
+            background-size: cover;
         }
         
         .container {
-            background-color: #ffffff;
-            max-width: 500px;
-            padding: 30px;
+            background-color: rgba(77, 145, 145, 0.75);
+            max-width: 375px;
+            padding: 20px;
             border-radius: 5px;
-            box-shadow: 0px 0px 10px 0px #000000;
+            box-shadow: 5px 5px 10px 5px #fff;
         }
         
         h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
+            font-size: 40px;
+            font-weight: bold;
+            font-color: #fff;
+            margin-bottom: 30px;
+            color: #ffffff;
+            font-family: Cursive;
         }
         
         label {
-            font-weight: bold;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
+            text-align: left;
+            padding-left: 25px;
+            font-family: Cursive;
+            font-style: italic;
         }
         
         input {
-            max-width: 400px;
+            max-width: 300px;
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 3px;
         }
         
         button {
-            background-color: #007bff;
+            background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20150828180844-internet-satellite-data-space.jpeg?width=700&crop=2:1&blur=50");
+            background-size: cover;
+            font-size: 15px;
             color: #fff;
-            padding: 10px 20px;
+            padding: 10px 40px;
             border: none;
-            border-radius: 3px;
+            border-radius: 10px;
             cursor: pointer;
             font-weight: bold;
+            margin-bottom: 50px;
+            margin-top: 15px;
         }
         
         button:hover {
@@ -55,11 +67,18 @@
         
         a {
             text-decoration: none;
-            color: #007bff;
+            color: #ffffff;
         } 
 
         .error {
-            color: red;
+            color: #ff0033;
+        }
+        p1{
+            font-size: 10px;
+            font-color: #fff;
+            color: #f2f2f2;
+            font-family: Cursive;
+            font-style: italic;
         }
     </style>
 </head>
@@ -77,15 +96,16 @@
         
                     <label for="password">Mật khẩu:</label>
                     <input type="password" id="password" name="password" required>
-        
+                    {% if error %}
+                    <div class="error">
+                        {{ error }}
+                    </div>
+                    {% endif %}
                     <button type="submit">Đăng ký</button>
                 </form>
-
-                {% if error %}
-                <div class="error">
-                    {{ error }}
-                </div>
-                {% endif %}
+                <br>
+                    <p1>Hoặc</p1>
+                <br>
                 <p>Đã có tài khoản? <a href="/login">Đăng nhập</a></p>
             </center>
         </div>

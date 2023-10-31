@@ -2,10 +2,59 @@
 <html>
 <head>
     <title>Trang chủ</title>
+    <style>
+        body {
+            background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20150828180844-internet-satellite-data-space.jpeg?width=700&crop=2:1&blur=50");
+            background-size: cover;
+        }
+        .container {
+            background-color: rgba(77, 145, 145, 0.75);
+            height: 90vh;
+            width: 90vw;
+            box-shadow: 5px 5px 10px 5px #fff;
+            border-radius: 10px;
+            margin-top: 5vh;
+        }
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            font-color: #fff;
+            margin-bottom: 30px;
+            color: #ffffff;
+            font-family: Cursive;
+            font-style: italic;
+        }
+        a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        a.button {
+            background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20150828180844-internet-satellite-data-space.jpeg?width=700&crop=2:1&blur=50");
+            background-size: cover;
+            font-size: 15px;
+            color: #fff;
+            padding: 10px 40px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 50px;
+            margin-top: 15px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body>
-    <h1>Xin chào, {{ username }}!</h1>
-    <p>Đây là trang chủ của bạn.</p>
-    <a href="/login">Đăng xuất</a>
+    <center>
+        <div class="container">
+            <h1>Xin chào, {{ username }}!</h1>
+            <p>Đây là trang chủ của bạn.</p>
+            <a class = "button" href="/login">Đăng xuất</a>
+        </div>
+    </center>
+    
 </body>
 </html>
