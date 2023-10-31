@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import json
 
 app = Flask(__name__)
@@ -24,7 +24,7 @@ def index():
 
 @app.route('/home')
 def home():
-    username = request.args.get('username') # lay gia tri cua username tu url
+    username = session.get('username') # lay gia tri cua username
     return render_template('home.html', username=username)
 
 @app.route('/login', methods=['GET', 'POST']) # neu khong co method thi mac dinh la GET
